@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="FaceScannerApi/FaceScannerApi.csproj" />
+  <Project Path="frontend/frontend.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>

@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "FaceScannerApi.Controllers.FaceController",
+    "Method": "SaveScan",
+    "RelativePath": "api/face/save-scan",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "payload",
+        "Type": "FaceScannerApi.Controllers.FaceController\u002BFaceScanPayload",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

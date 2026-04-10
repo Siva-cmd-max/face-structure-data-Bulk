@@ -1,0 +1,136 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "FaceScannerApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/face/save-scan": {
+      "post": {
+        "tags": [
+          "Face"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceScanPayload"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceScanPayload"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaceScanPayload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BoundingBox": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number",
+            "format": "float"
+          },
+          "y": {
+            "type": "number",
+            "format": "float"
+          },
+          "width": {
+            "type": "number",
+            "format": "float"
+          },
+          "height": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaceScanPayload": {
+        "type": "object",
+        "properties": {
+          "imageName": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageSizeKB": {
+            "type": "number",
+            "format": "float"
+          },
+          "imageWidth": {
+            "type": "number",
+            "format": "float"
+          },
+          "imageHeight": {
+            "type": "number",
+            "format": "float"
+          },
+          "faceDetected": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "type": "number",
+            "format": "float"
+          },
+          "faceBox": {
+            "$ref": "#/components/schemas/BoundingBox"
+          },
+          "leftEye": {
+            "$ref": "#/components/schemas/Point"
+          },
+          "rightEye": {
+            "$ref": "#/components/schemas/Point"
+          },
+          "nose": {
+            "$ref": "#/components/schemas/Point"
+          },
+          "mouth": {
+            "$ref": "#/components/schemas/Point"
+          },
+          "embedding": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "float"
+            },
+            "nullable": true
+          },
+          "scanTime": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Point": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number",
+            "format": "float"
+          },
+          "y": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
